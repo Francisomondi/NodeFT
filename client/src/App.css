@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
+ 
 }
 
 .information {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   align-items: center;
   width: 100%;
 }

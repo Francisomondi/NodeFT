@@ -13,16 +13,21 @@ function App() {
   const [wage, setWage] = useState(0);
 
   const displayResults = () => {
-    console.log(name + age + country + position + wage);
+    alert(name + age + country + position + wage);
   }
   return <div className="App" >
     <div className="information">
 
-      <label> Name </label> <input type="text" onChange={(event) => { setName(event.target.value) }} />
-      <label>age</label>    <input type="number" onChange={(event) => { setAge(event.target.value) }} />
-      <label> country </label> <input type="text" onChange={(event) => { setCountry(event.target.value) }} />
-      <label> position </label> <input type="text" onChange={(event) => { setPosition(event.target.value) }} />
-      <label > wages(per year) </label> <input type="number" onChange={(event) => { setWage(event.target.value) }} />
+      <label> Name </label>
+      <input type="text" onChange={event => { setName(event.target.value) }} />
+      <label>Age</label>
+      <input type="number" onChange={event => { setAge(event.target.value) }} />
+      <label> Country </label>
+      <input type="text" onChange={event => { setCountry(event.target.value) }} />
+      <label> Position </label>
+      <input type="text" onChange={(event) => { setPosition(event.target.value) }} />
+      <label > Wages(per year) </label>
+      <input type="number" onChange={(event) => { setWage(event.target.value) }} />
 
       <button onClick={
         displayResults
