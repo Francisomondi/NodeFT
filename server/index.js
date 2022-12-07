@@ -25,7 +25,7 @@ app.post("/create", (req, res) => {
         [name, age, country, position, wages], (err, result) => {
             if (err) console.log(err)
             else (
-                res.send("values inserted successfully")
+                res.send(result)
             )
 
         })

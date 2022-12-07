@@ -15,7 +15,6 @@ function App() {
   const [employeeList, setEmployeeList] = useState([]);
 
   const addEmployee = () => {
-
     Axios.post('http://localhost:5000/create', {
       name: name,
       age: age,
@@ -26,12 +25,10 @@ function App() {
   }
 
   const getEmployees = () => {
-
     Axios.get('http://localhost:5000/employees')
-      .then((response) => console.log(response))
+      .then((response) => setEmployeeList(response.data))
       .catch(err => console.log(err))
   }
-
 
   return <div className="App" >
     <div className="information">
@@ -53,6 +50,18 @@ function App() {
       ==============================================================
       <div className="employees">
         <button onClick={getEmployees}>Show employees</button>
+
+        {employeeList.map((val, key) => {
+          return (
+            <div className="employee">
+              <h2>name: {val.name}</h2>
+              <h2>Age: {val.age}</h2>
+              <h2> Country: {val.country}</h2>
+              <h2>Position: {val.position}</h2>
+              <h2>Wages: {val.wages}</h2>
+            </div>
+          )
+        })}
       </div>
 
 
