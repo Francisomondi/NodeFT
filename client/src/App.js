@@ -21,7 +21,13 @@ function App() {
       country: country,
       position: position,
       wages: wages
-    }).then(() => console.log("success")).catch(err => console.log(err))
+    }).then(() => setEmployeeList([...employeeList, {
+      name: name,
+      age: age,
+      country: country,
+      position: position,
+      wages: wages
+    }])).catch(err => console.log(err))
   }
 
   const getEmployees = () => {
