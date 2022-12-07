@@ -31,5 +31,12 @@ app.post("/create", (req, res) => {
         })
 })
 
+app.get("/employees", (req, res) => {
+    db.query("SELECT * FROM employee", (err, result) => {
+        if (err) console.log(err)
+        else (res.send(result))
+    })
+})
+
 const PORT = 5000
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
