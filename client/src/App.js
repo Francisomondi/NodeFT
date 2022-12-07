@@ -1,8 +1,8 @@
 import './App.css';
 import {
   useState
-} from "react"
-import Axios from "axios"
+} from "react";
+import Axios from "axios";
 
 
 function App() {
@@ -13,14 +13,14 @@ function App() {
   const [wages, setWages] = useState(0);
 
   const addEmployee = () => {
-    console.log(name)
-    Axios.post("http://localhost:3000/create/", {
+
+    Axios.post('http://localhost:5000/create', {
       name: name,
       age: age,
       country: country,
       position: position,
       wages: wages
-    })
+    }).then(() => console.log("success")).catch(err => console.log(err))
   }
 
 

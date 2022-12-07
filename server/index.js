@@ -10,18 +10,18 @@ const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "1234",
-    database: "employeesystem"
+    database: "employee_system"
 })
 
 app.post("/create", (req, res) => {
-    console.log(req.body);
-    const name = req.body.name;
-    const age = req.body.age;
-    const country = req.body.country;
-    const position = req.body.position;
-    const wages = req.body.wages;
 
-    db.query("INSERT INTO employees(name,age,country,position,wages) VALUES(?,?,?,?,?)",
+    const name = req.body.name
+    const age = req.body.age
+    const country = req.body.country
+    const position = req.body.position
+    const wages = req.body.wages
+
+    db.query("INSERT INTO employee(name,age,country,position,wages) VALUES(?,?,?,?,?)",
         [name, age, country, position, wages], (err, result) => {
             if (err) console.log(err)
             else (
