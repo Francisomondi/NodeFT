@@ -38,5 +38,16 @@ app.get("/employees", (req, res) => {
     })
 })
 
+app.put("/update", (req, res) => {
+    const id = req.body.id
+    const wages = req.body.wages
+
+
+    db.query("UPDATE employee SET wages = ? WHERE id = ?", [wages, id], (err, result) => {
+        if (err) console.log(err)
+        else (res.send(result))
+    })
+})
+
 const PORT = 5000
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
