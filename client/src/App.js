@@ -39,7 +39,18 @@ function App() {
 
   const updateEmployeeWages = (id) => {
     Axios.put('http://localhost:5000/update', { wages: newWages, id: id })
-      .then((response) => alert("updated"))
+      .then((response) => {
+        setEmployeeList(employeeList.map((val) => {
+          return val.id === id ? {
+            id: val.id,
+            name: val.name,
+            age: val.age,
+            country: val.country,
+            position: val.position,
+            wages: newWages
+          } : val
+        }))
+      })
       .catch(err => console.log(err))
   }
 
